@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+{% block content %}
+{% if last_search %}
+    <div>Repeat last search: <a href="/search/?name={{ last_search }}">{{ last_search }}</a></div>
+{% endif %}
+{% endblock content %}

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+    <h2>{{ city_name }}, {{country_name}}</h2>
+    <h1>{{ current_temp }}° C</h1>
+    <h2>{{ current_weather.1 }}</h2>
+    {% if is_day == True %}
+        <h1>☀️</h1>
+    {% else %}
+        <h1>🌙</h1>
+    {% endif %}
+    <table>
+        <tr>
+            <td>Day</td>
+            <td>Max temp</td>
+            <td>Min temp</td>
+            <td>Weather</td>
+        </tr>
+        {% for daily_forecast in forecast %}
+        <tr>
+            <td>{{ daily_forecast.day }}</td>
+            <td>{{ daily_forecast.temp_max }}° C</td>
+            <td>{{ daily_forecast.temp_min }}° C</td>
+            <td>{{ daily_forecast.weather.1 }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock content %}
